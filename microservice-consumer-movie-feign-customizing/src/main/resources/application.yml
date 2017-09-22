@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon
+server:
+  port: 8021
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+#使用下面方式配置 feignclient的日志级别不会成功
+logging:
+  level:
+    pers.chdy.cloud.feign.UserFeignClient: DEBUG
+
