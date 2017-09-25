@@ -7,16 +7,12 @@
         <module>microservice-consumer-movie</module>
         <module>microservice-consumer-movie-ribbon</module>
         <module>microservice-discovery-eureka</module>
+        <module>microservice-discovery-eureka-ha</module>
         <module>microservice-provider-user</module>
         <module>microservice-consumer-movie-feign</module>
         <module>microservice-consumer-movie-feign-customizing</module>
-        <module>microservice-discovery-eureka-ha</module>
+        <module>microservice-consumer-movie-ribbon-hystrix</module>
     </modules>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.4.RELEASE</version>
-    </parent>
 
     <groupId>pers.chdy.cloud</groupId>
     <artifactId>microservice-spring-cloud</artifactId>
@@ -26,6 +22,11 @@
     <dependencies>
     </dependencies>
     <!-- 依赖管理中声明的依赖并不会被子项目直接继承，在子项目中需要声明，但是只需要声明groupId和artifactId -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
     <dependencyManagement>
         <dependencies>
             <dependency>
