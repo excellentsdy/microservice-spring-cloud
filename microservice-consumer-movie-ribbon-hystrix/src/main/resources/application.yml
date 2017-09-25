@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-consumer-movie-ribbon-
+    name: microservice-consumer-movie-ribbon-hystrix
 server:
   port: 8021
 eureka:

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-consumer-movie-feign-customizing
+    name: microservice-consumer-movie-feign-hystrix
 server:
   port: 8021
 eureka:
@@ -11,8 +11,6 @@ eureka:
       defaultZone: http://user:password123@localhost:8761/eureka
   instance:
     prefer-ip-address: true
-#使用下面方式配置 feignclient的日志级别不会成功
-logging:
-  level:
-    pers.chdy.cloud.feign.UserFeignClient: DEBUG
-
+feign:
+  hystrix:
+    enabled: true
