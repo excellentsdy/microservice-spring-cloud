@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import pers.chdy.cloud.entity.User;
 import pers.chdy.cloud.feign.UserFeignClient;
+import pers.chdy.cloud.feign.UserFeignClient2;
 
 /**
  * CreteTime:2017/9/7 15:49.
@@ -14,12 +15,22 @@ import pers.chdy.cloud.feign.UserFeignClient;
  */
 @RestController
 public class MovieRibbonController {
+
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
     private UserFeignClient userFeignClient;
 
-    @GetMapping(path = "movie/{id}")
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
+    private UserFeignClient2 userFeignClient2;
+    @GetMapping(path = "/movie/{id}")
     public User findById(@PathVariable Long id){
         return this.userFeignClient.findById(id);
     }
+
+    @GetMapping("/serviceinfo/{serviceName}")
+    public String findServiceInfoFromEurekaByServiceName(@PathVariable String serviceName) {
+        return this.userFeignClient2.findServiceInfoFromEurekaByServiceName(serviceName);
+    }
+
 }

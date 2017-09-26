@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: microservice-consumer-movie-disable-single-feignclient
+server:
+  port: 8021
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+
