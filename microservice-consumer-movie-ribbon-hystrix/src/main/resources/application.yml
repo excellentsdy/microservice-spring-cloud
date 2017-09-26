@@ -3,6 +3,8 @@ spring:
     name: microservice-consumer-movie-ribbon-hystrix
 server:
   port: 8021
+  #context-path: /hystrixApp #影响该应用的业务请求路径；在未设置management.port的情况下会影响ctuator endpoints
+  #servletPath: /hystrixAppServlet #在未设置management.port的情况下会影响ctuator endpoints
 eureka:
   client:
     healthcheck:
@@ -11,3 +13,8 @@ eureka:
       defaultZone: http://user:password123@localhost:8761/eureka
   instance:
     prefer-ip-address: true
+    metadata-map:
+      management.port: ${management.port} #我们定义了management.port,我们需要将management.port放到metadata-map中供其它服务使用，例如turbine
+management:
+  port: 8019 #Actuator endpoints端口设置为该端口；访问info、health、hystrix.stream等需要使用该的端口。业务端口仍是server.port
+  #context-path: /hystrix
