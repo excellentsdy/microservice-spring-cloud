@@ -14,8 +14,8 @@ turbine:
   aggregator:
     clusterConfig: default
   appConfig: microservice-consumer-movie-feign-hystrix-fallback-factory,microservice-consumer-movie-ribbon-hystrix
-  cluster-name-expression: "'default'"
-#下面的配置可用，却不适合集群环境
+  clusterNameExpression: "'default'"
+
 #turbine:
   #aggregator:
     #clusterConfig: MICROSERVICE-CONSUMER-MOVIE-FEIGN-HYSTRIX-FALLBACK-FACTORY,MICROSERVICE-CONSUMER-MOVIE-RIBBON-HYSTRIX
